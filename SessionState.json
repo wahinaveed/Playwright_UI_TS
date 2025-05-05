@@ -1,0 +1,65 @@
+{
+  "cookies": [
+    {
+      "name": "agent-id",
+      "value": "f9a6eff4-b1dc-4828-87e8-0fae416318ee",
+      "domain": ".americanexpress.com",
+      "path": "/",
+      "expires": 1777963678.336928,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "bm_sz",
+      "value": "6FFEA9098783C3C0357106358C052970~YAAQNzkgF55F3HuWAQAAqn8znxvsW/NnftzliGzg5uZkZcFng819uU6iz7cZSLlLkmdwfVOUuuZppnwyj20+JbdezZMgrvOoHka1FYmngu9cZUQfDtNhllc+C6mlvNTcDM/3WvUOmwR+NiF9NtBThqfPCpuVdSU0OIsBgfYOHacV1LVp7X7FL1YewRj+UHIkNOAZJgJBeWcSw+BcfJ5YjOplvxU1O9ghApi2Ia2v57FsXF82NHtEUN2L/qjE0RrKBykWg//NyA7xFPIQqUKvcdErIKJvHJoXBf8Q0P76I5zXlOiimEC1GXiNQmZ9vM96KYWdP0GAFleoVNERWf72rk3zx+Xv3KjWcOGJgmKDWq28o3TsmgmygHeqfQ6S4JhpNCNxSzGY6oR/NJGzmzR0o0RnyqMlOr8=~4276805~4407622",
+      "domain": ".americanexpress.com",
+      "path": "/",
+      "expires": 1746442074.556812,
+      "httpOnly": false,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "ak_bmsc",
+      "value": "E14E51C2993F7364F495F68DA3C11696~000000000000000000000000000000~YAAQNzkgF8dF3HuWAQAA14cznxtm/FNWbV90Lezy67mTX7z2vNlA64cetgU5J80WX6itGHlWf/Y+MBN1BChrzi+MW1A2uq1DQKwJAnMrmxTILHxAegfZmmDXtbfIzeuBrZZb9kygaN3zkt14XmhVSvTBFa2bTLuOkT0mBfM45whlLLvibxlJ4LGNa//BjEPMOw+L/Emt/Nbzr3ljihSyH2Ji89FV4SKrOIiYjcod22RnAZr7HBGcZtalJtHZPvYBt/1lTOPzUJ1zGBHgon0uNJxWOgH0Kof47l5Pfu9W1g+PXkqVQhXtnG7ZeWx9ZuxoQ/BAt4U0kBfeD70oUkbDTZrG6s7x9N+rQhz+BPvAWQ03RJ8Z8dpG0CNzqShEGUgq+yVy0fxM4tG+p4MsdhsmfW/DlEK9aSvZCX3sT+t71lNvDwBExMtCZKWTVCOrrH+KuyVwsZw1dqFmENxp24wpT9PlOcM9jkX7At8A/yjNTf0Hnb2d/apeCfSp713VxlUJKRdycsQAtSSL",
+      "domain": ".americanexpress.com",
+      "path": "/",
+      "expires": 1746434874.61406,
+      "httpOnly": false,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "_abck",
+      "value": "E757DAC1F929D47C75AFAD34A10D3B47~-1~YAAQNzkgF9BF3HuWAQAAu4kznw0vJdwwk76Pe7zn74BsFT3q6sUpKvoKshZ/k/Kbn4YtaVwU16g8MW98JInOw8hTnL95Nt8mesm8kZw1Qnu4TJBYTm0t92an5e9fuYJspBj1qenk+b8j4ywr1Na3vfHeaCoKTe8eNkfZDAyiNYldKMLotsk5naQHbdc7o/MQKWGzbxIWPTCPVgqDCi6kLTq9iyEJ7UW0OJ4Oy9qDVvto5q185zqZqFJiIawxbo/CiRivK0O5LozkVrs7Lcodc2LbzPM8iIKNvXYJ7yXeJMBfJSlMMlZzKQ70udZoXCI3Ax20z7qxBgjPnJFsz1k0cy67/UdhYtwn0QjkrmNy0H3U4tIbd2jgAAwer1ezP1nHhZ3xr2nw1lPaaLjMAcrPM+ykYbSaeTQJuLSgjIwk+UEhux6+gjpVI5HacARbvMk72nBZUx6ql18EMSpjLA+7MQHJeOBqKACn16WRB24j3D8GgFtG9EBCuKsh+M4lzRD9aPCrsqJuFF3VjCxzJNgpdXZ3ctm87VSfmeNOzwY/zFAVL6bwxGbpQ3mU4vQZAL7PNA==~-1~||0||~-1",
+      "domain": ".americanexpress.com",
+      "path": "/",
+      "expires": 1777963677.096945,
+      "httpOnly": false,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "axplocale",
+      "value": "fr-FR",
+      "domain": ".americanexpress.com",
+      "path": "/",
+      "expires": -1,
+      "httpOnly": false,
+      "secure": true,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "akaalb_online",
+      "value": "1746428278~op=~rv=41~m=~os=~id=def79b7916026f94d96798091559e5fc",
+      "domain": "online.americanexpress.com",
+      "path": "/",
+      "expires": -1,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "None"
+    }
+  ],
+  "origins": []
+}

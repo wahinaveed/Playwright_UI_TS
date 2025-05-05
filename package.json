@@ -1,0 +1,30 @@
+{
+  "name": "playwirght_js_automation",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "preUITestPlaywright": "rimraf reports",
+    "UITestPlaywright": "npx playwright test --grep=@Tests --config ./configurations/playwright.ui.config.ts --project=chrome"
+  },
+  "keywords": [],
+  "author": "Wahid",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.49.0",
+    "allure-playwright": "^2.0.0-beta.16"
+  },
+  "dependencies": {
+    "@cucumber/cucumber": "^10.6.0",
+    "@faker-js/faker": "^9.7.0",
+    "@types/mssql": "^9.1.5",
+    "dotenv": "^14.2.0",
+    "monocart-reporter": "^2.9.15",
+    "mybatis-mapper": "^0.7.1",
+    "nodejs-nodemailer-outlook": "^1.2.4",
+    "nodemailer": "^6.7.8",
+    "properties-reader": "^2.2.0",
+    "rimraf": "^6.0.1",
+    "winston": "^3.13.0"
+  }
+}
