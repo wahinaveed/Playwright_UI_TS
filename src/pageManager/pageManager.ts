@@ -10,7 +10,9 @@ export class PageManager {
   private homePage: HomePage | undefined;
   private allCardsPage: AllCardsPage | undefined;
   private cardsDescriptionPage: CardsDescriptionPage | undefined;
-  private yourContactInformationComponent: YourContactInformationComponent | undefined
+  private yourContactInformationComponent:
+    | YourContactInformationComponent
+    | undefined;
 
   private page: Page | undefined;
 
@@ -20,7 +22,6 @@ export class PageManager {
     }
     return PageManager.instance;
   }
-
 
   // Setter method to store the page object
   public setPage(page: Page): void {
@@ -62,9 +63,9 @@ export class PageManager {
 
   getYourContactInformationPage(): YourContactInformationComponent {
     if (!this.yourContactInformationComponent) {
-      this.yourContactInformationComponent = new YourContactInformationComponent(this.getPage());
+      this.yourContactInformationComponent =
+        new YourContactInformationComponent(this.getPage());
     }
     return this.yourContactInformationComponent;
   }
 }
-

@@ -4,10 +4,14 @@ import { PageManager } from "../pageManager/pageManager";
 import { PlaywrightWrapper } from "../utilities//wrappers/playwrightWrapper";
 import Logger from "../utilities/logger/reportLogger";
 
-
 const logger = Logger.getInstance();
 
-export async function setupTest(url: string, urlDescription: string, browser: Browser, testInfo: TestInfo) {
+export async function setupTest(
+  url: string,
+  urlDescription: string,
+  browser: Browser,
+  testInfo: TestInfo
+) {
   logger.setTestInfo(testInfo);
   const context = await browser.newContext();
   const page = await context.newPage();
@@ -16,10 +20,7 @@ export async function setupTest(url: string, urlDescription: string, browser: Br
   pageManager.setPage(page);
   const playwrightWrapper = new PlaywrightWrapper();
 
-  await playwrightWrapper.navigateToUrl(
-    url,
-    urlDescription
-  );
+  await playwrightWrapper.navigateToUrl(url, urlDescription);
 
   await context.storageState({ path: "SessionState.json" });
   const webContext = await browser.newContext({

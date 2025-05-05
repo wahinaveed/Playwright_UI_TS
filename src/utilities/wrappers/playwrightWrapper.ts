@@ -1,4 +1,4 @@
-import { expect, Locator, Page } from "@playwright/test";
+import { Locator, Page } from "@playwright/test";
 import Logger from "../logger/reportLogger";
 import { PageManager } from "../../pageManager/pageManager";
 
@@ -28,13 +28,13 @@ export class PlaywrightWrapper {
           await this.page.waitForTimeout(8000);
           break;
         case "high":
-          await this.page.waitForTimeout(15000);
+          await this.page.waitForTimeout(25000);
           break;
         default:
           await this.page.waitForTimeout(4000);
           break;
       }
-    } catch (error: any) { }
+    } catch (error: any) {}
   }
 
   /**
@@ -94,7 +94,8 @@ export class PlaywrightWrapper {
     } catch (error: any) {
       // Simple error logging
       logger.logMessage(
-        `Error in getElementValue: ${error instanceof Error ? error.message : error
+        `Error in getElementValue: ${
+          error instanceof Error ? error.message : error
         }`,
         "error"
       );
@@ -113,8 +114,7 @@ export class PlaywrightWrapper {
   ): Promise<void> {
     try {
       await locator.scrollIntoViewIfNeeded();
-      await locator.first().click();
-      await this.page.waitForLoadState('networkidle')
+      await locator.click();
       await logger.logMessage(`The ${elementName} button is clicked`, "info");
     } catch (error: any) {
       const errorMessage = `Failed to click the ${elementName} button. Error: ${error.message}`;
@@ -134,7 +134,7 @@ export class PlaywrightWrapper {
   ): Promise<void> {
     try {
       await locator.first().click();
-      await this.page.waitForLoadState('networkidle')
+      await this.page.waitForLoadState("networkidle");
       await logger.logMessage(`The ${elementName} button is clicked`, "info");
     } catch (error: any) {
       const errorMessage = `Failed to click the ${elementName} button. Error: ${error.message}`;
@@ -159,9 +159,7 @@ export class PlaywrightWrapper {
       await locator.waitFor({ state: "visible", timeout });
       await logger.logMessage(`The ${elementName} is visible`, "info");
       return true;
-    } catch (error: any) {
-
-    }
+    } catch (error: any) {}
     return false;
   }
 
@@ -206,5 +204,4 @@ export class PlaywrightWrapper {
       throw new Error(errorMessage);
     }
   }
-
 }

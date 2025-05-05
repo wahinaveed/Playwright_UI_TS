@@ -12,62 +12,97 @@ class CustomReporter implements Reporter {
     status: string; // Status of the test case (passed/failed/skipped)
   }[] = [];
 
-  onTestEnd(test: TestCase, result: TestResult) {
-    // Get the describe block name from the test's parent (suite)
-    const describeDescription = test.parent.title;
-
-    // Collect test details
-    this.testResults.push({
-      describeDescription, // Description of the describe block
-      testName: test.title, // Name of the test case
-      status: result.status, // Status of the test case
+  constructor() {
+    // Fallback to print results if process exits unexpectedly
+    process.on("exit", () => {
+      this.printResults("⚠️ Fallback on exit: Partial results due to abrupt termination");
     });
   }
 
+  onTestEnd(test: TestCase, result: TestResult) {
+    try {
+      const describeDescription = test.parent?.title ?? "Unnamed Suite";
+
+      // Log result for each test
+      const status = result.status;
+      
+      // Handle the case where the test is skipped
+      if (status === 'skipped') {
+        this.testResults.push({
+          describeDescription,
+          testName: test.title,
+          status: "skipped", // Mark as skipped
+        });
+      } else {
+        // If the test is completed (passed/failed)
+        this.testResults.push({
+          describeDescription,
+          testName: test.title,
+          status: status, // "passed" or "failed"
+        });
+      }
+    } catch (error) {
+      console.error("Error in onTestEnd:", error);
+    }
+  }
+
   onEnd(result: FullResult) {
-    // Aggregate results by describeDescription
+    this.printResults("✅ Final Test Report");
+  }
+
+  private printResults(header: string) {
+    if (this.testResults.length === 0) {
+      console.log(`${header}: No test results to display.`);
+      return;
+    }
+
     const moduleResults: {
       [key: string]: {
-        totalExecuted: number; // Total test cases executed
-        totalPassed: number; // Total test cases passed
-        totalFailed: number; // Total test cases failed
-        totalTestCases: number; // Total test cases in the module
+        totalExecuted: number;
+        totalPassed: number;
+        totalFailed: number;
+        totalSkipped: number; // New field for skipped tests
+        totalTestCases: number;
       };
     } = {};
 
     for (const testResult of this.testResults) {
       const { describeDescription, status } = testResult;
 
-      // Initialize the module if it doesn't exist
       if (!moduleResults[describeDescription]) {
         moduleResults[describeDescription] = {
           totalExecuted: 0,
           totalPassed: 0,
           totalFailed: 0,
+          totalSkipped: 0,  // Initialize skipped count
           totalTestCases: 0,
         };
       }
 
-      // Update counts
       moduleResults[describeDescription].totalExecuted++;
       if (status === "passed") {
         moduleResults[describeDescription].totalPassed++;
       } else if (status === "failed") {
         moduleResults[describeDescription].totalFailed++;
+      } else if (status === "skipped") {
+        moduleResults[describeDescription].totalSkipped++; // Increment skipped count
       }
       moduleResults[describeDescription].totalTestCases++;
     }
 
-    // Print the aggregated results in a table format
-    console.table(
-      Object.entries(moduleResults).map(([describeDescription, counts]) => ({
+    const resultsArray = Object.entries(moduleResults).map(
+      ([describeDescription, counts]) => ({
         Module: describeDescription,
-        "Total TCs Executed": counts.totalExecuted,
-        "Total TCs Passed": counts.totalPassed,
-       // "Total Test Cases": counts.totalTestCases,
-        Failed: counts.totalFailed,
-      }))
+        "TCs Executed": counts.totalExecuted,
+        "TCs Passed": counts.totalPassed,
+        "TCs Failed": counts.totalFailed,
+        "TCs Skipped": counts.totalSkipped, 
+        //"Failed": counts.totalFailed,
+      })
     );
+
+    console.log(`\n${header}`);
+    console.table(resultsArray);
   }
 }
 
